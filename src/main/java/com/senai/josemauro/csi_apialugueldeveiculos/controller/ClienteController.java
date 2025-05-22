@@ -24,7 +24,7 @@ public class ClienteController {
     }
 
     @PutMapping
-    public Cliente alterarClienteByID(@RequestBody Cliente cliente) {
+    public Cliente alterarCliente(@RequestBody Cliente cliente) {
         return clienteService.alterarCliente(cliente);
     }
 

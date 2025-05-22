@@ -1,9 +1,7 @@
 package com.senai.josemauro.csi_apialugueldeveiculos.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -18,18 +16,13 @@ public class Cliente {
     @Column(name = "cpf", length = 11, nullable = false)
     private String cpf;
 
-    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<Aluguel> alugueis;
-
     public Cliente() {
     }
 
-    public Cliente(int id, String nome, String cpf, List<Aluguel> alugueis) {
+    public Cliente(int id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.alugueis = new ArrayList<>(alugueis);
     }
 
     public int getId() {
@@ -54,13 +47,5 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public List<Aluguel> getAlugueis() {
-        return alugueis;
-    }
-
-    public void setAlugueis(List<Aluguel> alugueis) {
-        this.alugueis = alugueis;
     }
 }

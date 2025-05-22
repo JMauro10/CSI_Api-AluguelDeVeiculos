@@ -1,9 +1,8 @@
 package com.senai.josemauro.csi_apialugueldeveiculos.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "veiculo")
@@ -20,9 +19,6 @@ public class Veiculo {
 
     private Boolean disponivel;
 
-    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<Aluguel> alugueis;
 
     public enum Tipo {
         CARRO,
@@ -32,12 +28,11 @@ public class Veiculo {
     public Veiculo() {
     }
 
-    public Veiculo(int id, String modelo, Tipo tipo, Boolean disponivel, List<Aluguel> alugueis) {
+    public Veiculo(int id, String modelo, Tipo tipo, Boolean disponivel) {
         this.id = id;
         this.modelo = modelo;
         this.tipo = tipo;
         this.disponivel = disponivel;
-        this.alugueis = new ArrayList<>(alugueis);
     }
 
     public int getId() {
@@ -72,11 +67,4 @@ public class Veiculo {
         this.disponivel = disponivel;
     }
 
-    public List<Aluguel> getAlugueis() {
-        return alugueis;
-    }
-
-    public void setAlugueis(List<Aluguel> alugueis) {
-        this.alugueis = alugueis;
-    }
 }

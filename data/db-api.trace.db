@@ -1,0 +1,6 @@
+2025-05-22 16:29:39.814625-03:00 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "CPF CHARACTER VARYING(11)": "'704.983.381-93' (14)"; SQL statement:
+insert into cliente (cpf,nome,id) values (?,?,?) [22001-232]
+2025-05-22 17:04:51.038671-03:00 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "CPF CHARACTER VARYING(11)": "'010101010101' (12)"; SQL statement:
+update cliente set cpf=?,nome=? where id=? [22001-232]
